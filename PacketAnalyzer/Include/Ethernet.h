@@ -1,11 +1,14 @@
 #ifndef __ETHERNET__H__
 #define __ETHERNET__H__
 
-class CEthernet
-{
-public:
-    CEthernet();
-    ~CEthernet();
-};
+#include <stdint.h>
+#include <string>
+#include <array>
 
-#endif  //!__ETHERNET__H__
+#ifndef __NET_ETHERNET_H
+#include "EthernetSym.h"
+#endif
+
+#include "EthernetIF.h"
+
+#endif  /* !__ETHERNET__H__ */

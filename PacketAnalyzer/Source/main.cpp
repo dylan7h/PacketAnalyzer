@@ -5,6 +5,8 @@
 
 #include <stdio.h>
 
+#include "Ethernet.h"
+
 int main(void)
 {
     int RawSocket;
@@ -21,12 +23,11 @@ int main(void)
     ret = read(RawSocket, PacketBuff, ETH_MAX_MTU);
     if(ret != -1)
     {
-        pETH = (struct ether_header*)PacketBuff;
+        CEthernet eth(PacketBuff, ETH_MAX_MTU);
 
-        pETH->ether_type;
-        pETH->ether_dhost;
-        pETH->ether_shost;
-
+        printf("Src MAC: %s\n", eth.GetStrSrc().data());
+        printf("Dst MAC: %s\n", eth.GetStrDst().data());
+        printf("Type: %s\n", eth.GetStrEthType().data());
     }
 
     close(RawSocket);
