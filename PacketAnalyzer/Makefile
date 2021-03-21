@@ -61,7 +61,7 @@ $(EXE_DIR)/$(TARGET).$(FILE_EXT): $(OBJS)
 	@mkdir -p $(MAP_DIR)
 	@mkdir -p $(ASM_DIR)
 	@printf "%-10s $@\n" "LD" 
-	$(V)$(LD) -o $@ $< $(LDFLAGS) -Xlinker -Map=$(MAP_DIR)/$(TARGET).map $(LIB_DIR) $(LIBS)
+	$(V)$(LD) -o $@ $(OBJS) $(LDFLAGS) -Xlinker -Map=$(MAP_DIR)/$(TARGET).map $(LIB_DIR) $(LIBS)
 
 
 #============================================================

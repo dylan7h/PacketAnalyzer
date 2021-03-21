@@ -19,7 +19,8 @@ INC_PATH	:= Include
 #============================================================
 # Path of Source lists
 #============================================================
-CSRCS		:= Source/main.c
+CXXSRCS		:= Source/main.cpp
+CXXSRCS		+= Source/Ethernet.cpp
 
 
 #============================================================
@@ -38,7 +39,9 @@ LIB_NAME	:=
 # (Must be Located at last line)
 #============================================================
 OBJS		:= $(addprefix $(OBJ_DIR)/, $(CSRCS:.c=.o))
+OBJS		+= $(addprefix $(OBJ_DIR)/, $(CXXSRCS:.cpp=.o))
 DEPS		:= $(addprefix $(DEF_DIR)/, $(CSRCS:.c=.d))
+DEPS		+= $(addprefix $(DEF_DIR)/, $(CXXSRCS:.cpp=.d))
 LIBS		:= $(addprefix -l, $(LIB_NAME))
 LIB_DIR		:= $(addprefix -L , $(LIB_PATH))
 INCS		:= $(addprefix -I , $(INC_PATH))
